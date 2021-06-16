@@ -96,11 +96,9 @@ No Modulefiles Currently Loaded.
 ## Loading and Unloading Software
 
 To load a software module, use `module load`. In this example we will use
-Python 3.
+Python.
 
-Initially, Python 3 is not loaded. We can test this by using the `which`
-command. `which` looks for programs the same way that Bash does, so we can use
-it to tell us where a particular piece of software is stored.
+The Python installed on the system may differ from the head node to the compute nodes and may not be the version you need.  We can test this by using the `which` command and the 'version' option of the python command.  `which` looks for programs the same way that Bash does, so we can use it to tell us where a particular piece of software is stored.  Using the '--version' option will tell us what version is the default.
 
 ```
 {{ site.remote.prompt }} which python3
@@ -109,7 +107,20 @@ it to tell us where a particular piece of software is stored.
 
 {% include {{ site.snippets }}/modules/missing-python.snip %}
 
-We can load the `python3` command with `module load`:
+```
+{{ site.remote.prompt }} python3 --version
+```
+
+{% include {{ site.snippets }}/modules/python-version.snip %}
+
+We can see which versions of python are available to use with `module avail`:
+
+```
+{{ site.remote.prompt }} module avail python 
+```
+{% include {{ site.snippets }}/modules/module-avail-python.snip %}
+
+If we need an older version of `python` we can load it with `module load`:
 
 {% include {{ site.snippets }}/modules/module-load-python.snip %}
 
@@ -170,10 +181,9 @@ Let's examine the output of `module avail` more closely.
 
 > ## Using Software Modules in Scripts
 >
-> Create a job that is able to run `python3 --version`. Remember, no software
-> is loaded by default! Running a job is just like logging on to the system
-> (you should not assume a module loaded on the login node is loaded on a
-> compute node).
+> Create a job that is able to run a version of Anaconda Python36 and output `python3 --version`. 
+> Running a job is just like logging on to the system. 
+> (you should not assume a module loaded on the login node is loaded on a compute node).
 >
 > > ## Solution
 > >
@@ -186,7 +196,7 @@ Let's examine the output of `module avail` more closely.
 > > ```
 > > {{ site.remote.bash_shebang }}
 > >
-> > module load {{ site.remote.module_python3 }}
+> > module load python/py36-anaconda-5.2.0
 > >
 > > python3 --version
 > > ```
