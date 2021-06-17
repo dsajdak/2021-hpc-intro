@@ -108,6 +108,8 @@ The Python installed on the system may differ from the head node to the compute 
 {% include {{ site.snippets }}/modules/missing-python.snip %}
 
 ```
+{: .language-bash}
+
 {{ site.remote.prompt }} python3 --version
 ```
 
@@ -116,6 +118,8 @@ The Python installed on the system may differ from the head node to the compute 
 We can see which versions of python are available to use with `module avail`:
 
 ```
+{: .language-bash}
+
 {{ site.remote.prompt }} module avail python 
 ```
 {% include {{ site.snippets }}/modules/module-avail-python.snip %}
@@ -171,6 +175,8 @@ software is loaded.
 Let's examine the output of `module avail` more closely.
 
 ```
+{: .language-bash}
+
 {{ site.remote.prompt }} module avail
 ```
 {: .language-bash}
