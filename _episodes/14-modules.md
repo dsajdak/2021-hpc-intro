@@ -100,16 +100,17 @@ Python.
 
 The Python installed on the system may differ from the head node to the compute nodes and may not be the version you need.  We can test this by using the `which` command and the 'version' option of the python command.  `which` looks for programs the same way that Bash does, so we can use it to tell us where a particular piece of software is stored.  Using the '--version' option will tell us what version is the default.
 
+{: .language-bash} 
+
 ```
 {{ site.remote.prompt }} which python3
 ```
-{: .language-bash}
 
 {% include {{ site.snippets }}/modules/missing-python.snip %}
 
-```
 {: .language-bash}
 
+```
 {{ site.remote.prompt }} python3 --version
 ```
 
@@ -118,10 +119,10 @@ The Python installed on the system may differ from the head node to the compute 
 We can see which versions of python are available to use with `module avail`:
 
 ```
-{: .language-bash}
-
 {{ site.remote.prompt }} module avail python 
 ```
+{: .language-bash}
+
 {% include {{ site.snippets }}/modules/module-avail-python.snip %}
 
 If we need an older version of `python` we can load it with `module load`:
@@ -174,9 +175,9 @@ software is loaded.
 
 Let's examine the output of `module avail` more closely.
 
-```
 {: .language-bash}
 
+```
 {{ site.remote.prompt }} module avail
 ```
 {: .language-bash}
